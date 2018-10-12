@@ -12,5 +12,6 @@
       "entryFile": "public_api.ts"
     },
     "dest": "../../dist/common"
-  }
+  },
+  "version": "3.0.2"
 }

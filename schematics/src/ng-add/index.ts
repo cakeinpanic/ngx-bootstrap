@@ -18,6 +18,8 @@ import {
   installPackageJsonDependencies
 } from '../utils';
 
+const bootstrapStylePath =  `./node_modules/bootstrap/dist/css/bootstrap.css`;
+const datePickerStylePath =  `./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css`;
 
 /* tslint:disable-next-line: no-default-export */
 export default function (options: Schema): Rule {
@@ -41,9 +43,8 @@ export function addStyles(options: Schema): (host: Tree) => Tree {
 }
 
 function insertStyle(project: WorkspaceProject, host: Tree, workspace: WorkspaceSchema) {
-
-  const stylePath =  `./node_modules/bootstrap/dist/css/bootstrap.css`;
-
-  addStyleToTarget(project, 'build', host, stylePath, workspace);
-  addStyleToTarget(project, 'test', host, stylePath, workspace);
+  addStyleToTarget(project, 'build', host, bootstrapStylePath, workspace);
+  addStyleToTarget(project, 'test', host, bootstrapStylePath, workspace);
+  addStyleToTarget(project, 'build', host, datePickerStylePath, workspace);
+  addStyleToTarget(project, 'test', host, datePickerStylePath, workspace);
 }
