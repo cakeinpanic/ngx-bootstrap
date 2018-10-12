@@ -1,6 +1,6 @@
 {
   "name": "ngx-bootstrap-base",
-  "version": "3.0.3",
+  "version": "3.0.1",
   "description": "Native Angular Bootstrap Components",
   "schematics": "./schematics/collection.json",
   "private": true,
