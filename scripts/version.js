@@ -1,14 +1,13 @@
 'use strict';
 
 const execa = require('execa');
-const option = process.argv[2];
+const _version = require('../package').version;
 
-changeVersion(option);
-
-async function changeVersion(option) {
+changeVersion();
+async function changeVersion() {
   console.log(`Updating version`);
-  await execa.shell(`find . -maxdepth 1 -name package.json -exec bash -c "npm --prefix \\$(dirname {}) version ${option}" \\;`);
-  await execa.shell(`find src -maxdepth 2 -name package.json -exec bash -c "npm --prefix \\$(dirname {}) version ${option}" \\;`);
-  await execa.shell(`npm run version.changelog`);
-  console.log('completed');
+
+  await execa.shell(`find src -maxdepth 2 -name package.json -exec bash -c "npm --prefix \\$(dirname {}) version ${_version}" \\;`);
+
+  console.log('versioning completed');
 }
